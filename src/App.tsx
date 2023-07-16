@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import List from "./components/list";
 import AddToList from "./components/addToList";
+import DebouncingInputWithReact from "./components/debouncingInputWithReact";
 
 export interface IState {
   people: {
@@ -33,6 +34,7 @@ function App() {
       <h1>This is the sample Typescript application</h1>
       <List people={people} />
       <AddToList people={people} setPeople={setPeople} />
+      <DebouncingInputWithReact />
     </div>
   );
 }
