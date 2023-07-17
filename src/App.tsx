@@ -3,8 +3,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import List from "./components/list";
 import AddToList from "./components/addToList";
-import DebouncingInputWithReact from "./components/debouncingInputWithReact";
-
+import DebouncingInputWithReact from "./components/debouncingProject/debouncingInputWithReact";
+import ModelRocketLaneTest from "./components/rocketLanetest/rocketLaneInitial";
+import ThreeIInfoTechTest from "./components/threeiinfotechTest/Test1";
 export interface IState {
   people: {
     name: string;
@@ -35,6 +36,8 @@ function App() {
       <List people={people} />
       <AddToList people={people} setPeople={setPeople} />
       <DebouncingInputWithReact />
+      <ThreeIInfoTechTest />
+      <ModelRocketLaneTest />
     </div>
   );
 }

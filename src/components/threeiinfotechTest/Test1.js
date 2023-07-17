@@ -1,9 +1,8 @@
-import "./styles.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 let token = "34762f9a3c9c61a582dd5871906101d9b1e7f174d4dcec78c8e025983b537881";
 
-export default function App() {
+export default function ThreeIInfoTechTest() {
     const [name, setName] = useState("");
     const [emailId, setEmailId] = useState("");
     const [phoneNumber, setPhoneNUmber] = useState("");
