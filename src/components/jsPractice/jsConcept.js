@@ -214,6 +214,7 @@ Promise.race([promise1, promise2, promise3])
 
 
 // -------------------------------------------------------------------------------------------------------------------------
+// Async / Await with Promise: You can also work with multiple promises using async / await, which allows you to write asynchronous code in a more synchronous style.
 
 
 async function fetchData() {
@@ -228,3 +229,16 @@ async function fetchData() {
 }
 
 fetchData();
+
+// ------------------------------------------------------------------
+// Curried version of the add function
+function curriedAdd(a) {
+    return function (b) {
+        return function (c) {
+            return a + b + c;
+        };
+    };
+}
+
+// Using the regular add function
+console.log(add(1, 2, 3)); // Output: 6
