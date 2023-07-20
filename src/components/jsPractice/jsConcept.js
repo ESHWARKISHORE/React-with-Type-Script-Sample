@@ -163,4 +163,68 @@ myPromise
 
 // ------------------------------------------------------------------------------------------------------------------
 
+const nestedArray = [1, 2, 3, 4, [3, 4, 5, [4], 4, [4, 5, 6, 7], 4]];
 
+function flattenArray(arr) {
+    const result = [];
+    arr.forEach(item => {
+        if (Array.isArray(item)) {
+            result.push(...flattenArray(item));
+        } else {
+            result.push(item);
+        }
+    });
+    return result;
+}
+
+const flattenedArray = flattenArray(nestedArray);
+console.log(flattenedArray);
+
+//---------------------------------------------------------------------------------------------------------------------
+
+// Promise.all(): This method takes an array of promises and returns a single promise that resolves when all the input promises are resolved or rejects when any of the input promises is rejected
+
+const promise1 = new Promise((resolve) => setTimeout(resolve, 1000, 'Promise 1'));
+const promise2 = new Promise((resolve) => setTimeout(resolve, 500, 'Promise 2'));
+const promise3 = new Promise((resolve) => setTimeout(resolve, 1500, 'Promise 3'));
+
+Promise.all([promise1, promise2, promise3])
+    .then((results) => {
+        console.log(results); // Output: ['Promise 1', 'Promise 2', 'Promise 3']
+    })
+    .catch((error) => {
+        console.error(error); // This will not be called in this example
+    });
+
+// -----------------------------------------------------------------------------------------------------------
+
+// Promise.race(): This method takes an array of promises and returns a single promise that resolves or rejects as soon as any of the input promises resolves or rejects.
+
+const promise4 = new Promise((resolve) => setTimeout(resolve, 1000, 'Promise 1'));
+const promise5 = new Promise((resolve) => setTimeout(resolve, 500, 'Promise 2'));
+const promise6 = new Promise((_, reject) => setTimeout(reject, 800, 'Promise 3'));
+
+Promise.race([promise1, promise2, promise3])
+    .then((result) => {
+        console.log(result); // Output: 'Promise 2' (the first resolved promise)
+    })
+    .catch((error) => {
+        console.error(error); // Output: 'Promise 3' (the first rejected promise)
+    });
+
+
+// -------------------------------------------------------------------------------------------------------------------------
+
+
+async function fetchData() {
+    try {
+        const data1 = await fetch('/api/data1');
+        const data2 = await fetch('/api/data2');
+        const data3 = await fetch('/api/data3');
+        console.log(data1, data2, data3); // Process data after all promises are resolved
+    } catch (error) {
+        console.error(error); // Handle any error that occurs in any of the promises
+    }
+}
+
+fetchData();
