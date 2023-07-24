@@ -232,6 +232,8 @@ fetchData();
 
 // ------------------------------------------------------------------
 // Curried version of the add function
+
+// Currying is a functional programming technique in JavaScript where a function that takes multiple arguments is transformed into a sequence of functions, each taking a single argument.This allows you to partially apply arguments to a function, creating a new function with fewer parameters.
 function curriedAdd(a) {
     return function (b) {
         return function (c) {
@@ -242,3 +244,4 @@ function curriedAdd(a) {
 
 // Using the regular add function
 console.log(add(1, 2, 3)); // Output: 6
+
